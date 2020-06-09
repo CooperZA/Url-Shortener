@@ -1,0 +1,42 @@
+﻿@model IEnumerable<UrlShortener.Models.UrlShortenerModel>
+
+@{
+}
+
+<div class="jumbotron">
+    <h1>ASP.Zach's UrlShortener</h1>
+</div>
+
+<form method="post" action="~/ShortUrl/Create/">
+    <div class="form-group">
+        <input type="text" name="url" />
+        <input class="btn btn-default" type="submit" value="Submit" />
+    </div>
+</form>
+
+<div>
+    <p>Your New URL</p>
+    <input readonly class="form-control-plaintext" value="@ViewBag.Link">
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Long Url</th>
+                <th scope="col">Short Url</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var url in Model)
+            {
+                <tr>
+                    <td>@url.Id</td>
+                    <td class="text-wrap"><a href="@url.OriginUrl" target="_blank">@url.OriginUrl</a></td>
+                    <td><a href="~/ShortUrl/Index/@url.ShortLink" target="_blank">@url.ShortLink</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

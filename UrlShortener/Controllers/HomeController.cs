@@ -53,7 +53,7 @@ namespace UrlShortener.Controllers
 
             urlShortRepo.addNewUrl(urls);
 
-            ViewBag.Link = "http://localhost:44302/Home/Index/" + newShortUrl;
+            ViewBag.Link = "http://yorktown.cbe.wwu.edu/students/202/cooperz/ShortUrl/Index/" + newShortUrl;
 
             return View("Index", urlShortRepo.GetUrls());
         }
